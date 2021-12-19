@@ -1,0 +1,97 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root */
+:root {
+  --dimension-container: 600px;
+}
+
+
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.radius,
+.container__sphere::before,
+.container__sphere::after {
+  border-radius: 50%;
+}
+
+.container__video,
+.container__sphere-video {
+  object-fit: cover;
+  filter: blur(35px);
+}
+
+.container__video,
+.container__sphere::before,
+.container__sphere-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.container__sphere {
+  position: relative;
+  width: var(--dimension-container);
+  height: var(--dimension-container);
+  z-index: 10;
+}
+
+.container__sphere::before {
+  content: '';
+  z-index: 11;
+  box-shadow: inset 0 100px 100px rgba(255, 255, 255, 0.5),
+    inset 0 -100px 100px rgba(0, 0, 0, 1), inset 0 0px 100px rgba(0, 0, 0, 1);
+}
+
+.container__sphere::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 700px;
+  height: 100px;
+  background: radial-gradient(#000, transparent, transparent);
+  z-index: -1;
+}
+
+.container__sphere-video {
+  filter: blur(0);
+}
+
+
+.fa-github{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 659px) {
+    :root {
+      --dimension-container: 400px;
+    }
+
+    .container__sphere::after{
+        left: -10px;
+        bottom: -25px;
+        width: 400px;
+        height: 50px;
+    }
+  }
