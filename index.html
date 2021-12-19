@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Sphere Memory</title>
 </head>
@@ -14,14 +14,29 @@
     <div class="container">
         <video src="amv2.mp4#t=13,173.1" autoplay muted type="video/mp4" class="container__video"></video>
         <div class="container__sphere radius">
-            <video src="amv2.mp4#t=13,173.1" type="video/mp4" class="container__sphere-video radius"
-                id="video"></video>
+            <video src="amv2.mp4#t=13,173.1" autoplay muted controls type="video/mp4"
+                class="container__sphere-video radius" id="video"></video>
         </div>
-        <a href="https://github.com/doums85/sphere-memory" target="_blank"><i class="fab fa-github"></i></a>
+        <div class="container__volume">
+            <i class="fas fa-volume-mute"></i>
+        </div>
     </div>
 
+    <footer>
+        <a href="https://github.com/doums85/sphere-memory" target="_blank"><i class="fab fa-github"></i></a>
+    </footer>
+
     <script>
-        document.querySelector('#video').play();
+        let btn = document.querySelector(".fas")
+        let video = document.querySelector('#video')
+
+        /* Handle volume */
+        const handle = () => video.muted
+        ? (video.muted = false, btn.classList.add('fa-volume-up'))
+         : (video.muted = true, btn.classList.remove('fa-volume-up'))
+
+
+        btn.addEventListener('click', handle)
     </script>
 </body>
 

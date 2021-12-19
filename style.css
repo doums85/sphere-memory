@@ -74,6 +74,13 @@ body {
   filter: blur(0);
 }
 
+.container__volume{
+  position: absolute;
+  left: 10px;
+  bottom: 80px;
+  font-size: 1.5rem;
+}
+
 
 .fa-github{
   position: absolute;
